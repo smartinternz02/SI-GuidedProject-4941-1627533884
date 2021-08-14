@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>food Swipe</title>
+    <link href="/static/styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="warpper fl">
+        <div class="main">
+             <div class="head">
+              <p>Food Demand Forecast</p>
+             </div>
+        <div class="form fl">
+            <form action="{{ url_for('y_predict') }}" method="post">
+                <p class="name">City Code</p>
+        <p><input type="text" placeholder="City Code" class="name-inp" required="required"/></p>
+                <p class="name">Week No.</p>
+        <p><input type="text" placeholder="Week No." class="name-inp" required="required"/></p>
+                <p class="name">Base Price</p>
+        <p><input type="text" placeholder="Base Price" class="name-inp" required="required"/></p>
+                <p class="name">Checkout Price</p>
+        <p><input type="text" placeholder="Checkout Price" class="name-inp" required="required"/></p>
+        <p class="multi">
+        <span class="gen">Email Send as Promotion</span>
+            <input type="radio" class="genm" value="1" required="required"/>Yes
+            <input type="radio" class="genm" value="0" required="required"/>No
+        </p>
+        <p class="multi">
+            <span class="gen">Meal Featured at Homepage</span>
+                <input type="radio" class="genm" value="1" required="required"/>Yes
+                <input type="radio" class="genm" value="0" required="required"/>No
+        </p>    
+        <p class="multi">
+            <span class="gen">Center Type</span>
+                <input class="genm" type="radio" value="0" required="required"/>TYPE_A
+                <input class="genm" type="radio" value="1" required="required"/>TYPE_B
+                <input class="genm" type="radio" value="2" required="required"/>TYPE_C
+        </p>
+          <p class="name">Area of Operation</p>
+        <p><input type="text" placeholder="Area of Operation" class="name-inp" required="required"/></p>
+<p class="multis">
+        <span class="gen">Meal Category</span>
+            <select id="drop" required="required">
+            <option>Select Any</option>
+            <option value="0">Beverages</option>
+            <option value="8">Rice Bowl</option>
+            <option value="13">Starters</option>
+            <option value="6">Pasta</option>
+            <option value="10">Sandwich</option>
+            <option value="1">Biriyani</option>
+            <option value="3">Extras</option>
+            <option value="7">Pizza</option>
+            <option value="11">Seafood</option>
+            <option value="5">Other Snacks</option>
+            <option value="2">Desert</option>
+            <option value="9">Salad</option>
+            <option value="4">Fish</option>
+            <option value="12">Soup</option>
+        </select>
+</p>
+
+        <p class="multi">
+            <span class="gen">Cuisine</span>
+        <input class="genm" type="checkbox" value=3 required="required"/>Thai
+        <input class="genm" type="checkbox" value=1 required="required"/>Indian
+        <input class="genm" type="checkbox" value=2 required="required"/>Italian
+        <input class="genm" type="checkbox" value=0 required="required"/>Continental
+        </p>
+            <p><input type="submit" name="sb" value="Predict" class="subs"></p>
+        </form>
+        </div>
+         {{ prediction_text }}
+        </div>
+
+</body>
+</html>
